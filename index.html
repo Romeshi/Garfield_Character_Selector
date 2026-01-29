@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garfield Character Selector</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        #main-image {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        #main-image:hover {
+            transform: scale(1.05);
+        }
+
+        select {
+            margin-top: 1.5rem;
+            padding: 0.75rem;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            background-color: white;
+            cursor: pointer;
+            width: 200px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        select option {
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hello! 28009</h1>
+
+        <img id="main-image" src="images/garfield.png" alt="garfield">
+
+        <select id="char-dropdown">
+            <option value="garfield" selected>Garfield</option>
+            <option value="odie">Odie</option>
+            <option value="nermal">Nermal</option>
+            <option value="jon">Jon</option>
+        </select>
+    </div>
+
+    <script>
+        // 1. Grab the elements from the page
+        const dropdown = document.getElementById("char-dropdown");
+        const displayImg = document.getElementById("main-image");
+
+        // 2. Listen for when the user clicks/changes a name
+        dropdown.addEventListener("change", function () {
+
+            // 3. Update the image source to match the selected value
+            // If you pick 'garfield', it looks for garfield.png
+            const selectedValue = this.value;
+            displayImg.src = "images/" + selectedValue + ".png";
+            displayImg.alt = selectedValue;
+        });
+    </script>
+</body>
+
+</html>
